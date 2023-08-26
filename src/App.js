@@ -44,8 +44,14 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-import { incrementFun, decrementFun } from "./action";
-import { loggedInFunc, loggedOutFunc } from "./action";
+import { incrementFun, decrementFun } from "./actions/action";
+import { loggedInFunc, loggedOutFunc } from "./actions/action.js";
+import {
+  gradeAFunc,
+  gradeBFunc,
+  gradeCFunc,
+  gradeDFunc,
+} from "./actions/action";
 export function App() {
   // const result = useSelector((state) => state.counter);
   // const alaaName = useSelector((state) => state.name);
@@ -83,16 +89,25 @@ export function App() {
   // </div>
   // );
   /************** This is the new example uaamer be with us**************** */
-  const data = useSelector((state) => state); // This line used to view data
-  console.log(data.isLogin);
-  const dataDispatchFunc = useDispatch();
+  const resultOne = useSelector((state) => state.login); // This line used to view data
+  const resultOneDispatch = useDispatch();
+  // *********************** This is for Grade store or reducer uaAemr ******************
+  const resultTwo = useSelector((state) => state.second);
+  const resultTwoDispatch = useDispatch();
+  // ***********************************
+  const resultThree = useSelector((state) => state.degree);
+  const resultThreeDispatch = useDispatch();
+
+  console.log(resultOne);
+  console.log(resultTwo);
+  console.log(resultThree);
 
   return (
     <div>
-      <h3>The Status of Login : {data.value}</h3>
+      <h3>The Status of Login : {resultOne.value}</h3>
       <button
         onClick={() => {
-          dataDispatchFunc(loggedInFunc());
+          resultOneDispatch(loggedInFunc());
         }}
       >
         {" "}
@@ -101,11 +116,44 @@ export function App() {
       <br />
       <button
         onClick={() => {
-          dataDispatchFunc(loggedOutFunc());
+          resultOneDispatch(loggedOutFunc());
         }}
       >
         {" "}
         Make Him Logged Out
+      </button>
+      {/* ******************************************* */}
+      <hr></hr>
+      <div>
+        Your grade is : {resultThree.grade} And your name is {resultThree.name}
+      </div>
+      <button
+        onClick={() => {
+          resultOneDispatch(gradeAFunc());
+        }}
+      >
+        ChangeGradeTo0A
+      </button>
+      <button
+        onClick={() => {
+          resultThreeDispatch(gradeBFunc());
+        }}
+      >
+        ChangeGradeToB
+      </button>
+      <button
+        onClick={() => {
+          resultThreeDispatch(gradeCFunc());
+        }}
+      >
+        ChangeGradeToC
+      </button>
+      <button
+        onClick={() => {
+          resultThreeDispatch(gradeDFunc());
+        }}
+      >
+        ChangeGradeToD
       </button>
     </div>
   );

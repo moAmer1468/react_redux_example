@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import { amerCounterStore } from "./store";
+import { amerCounterStore } from "./stores/store";
 // 3- Wrap all the application with Redux-Provider
 // And This file will deal with store.js only Not reducer
 // So The order if index => store => reducer

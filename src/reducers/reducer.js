@@ -1,5 +1,5 @@
-import "./type";
-import { DECREMENT, INCREMENT, RESET } from "./type";
+import "../types/type";
+import { DECREMENT, INCREMENT, RESET } from "../types/type";
 // export const CounterReducer = (
 //   initialObject = { count: 0, name: "mohamed Alaa amer " },
 //   actionObject
