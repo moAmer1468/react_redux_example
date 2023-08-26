@@ -12,7 +12,7 @@ root.render(
     <App />
   </Provider>
 );
-
+/**********************This is the Steps For all the mission ************* */
 // 3- Wrap all the application with Redux-Provider
 // And This file will deal with store.js only Not reducer
 // So The order if index => store => reducer
@@ -22,6 +22,7 @@ root.render(
 // 3- Wrap all the application with Redux-Provider .. in the index.js file
 // 4-access data From store   with useSelector ... just used to show the data in reducer
 // 5-change data in reducer with dispatch useDispatch .. to make any changes to reducer
+//********************************************* */
 /**
  *
  * This is just the second example uaAmer
