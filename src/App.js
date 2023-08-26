@@ -45,38 +45,67 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { incrementFun, decrementFun } from "./action";
+import { loggedInFunc, loggedOutFunc } from "./action";
 export function App() {
-  const result = useSelector((state) => state.counter);
-  const alaaName = useSelector((state) => state.name);
+  // const result = useSelector((state) => state.counter);
+  // const alaaName = useSelector((state) => state.name);
 
-  console.log(alaaName);
-  console.log(result);
+  // console.log(alaaName);
+  // console.log(result);
 
-  const dispatchFunction = useDispatch();
+  // //to access all actions uaAmer
+  // const dispatchFunction = useDispatch();
+  // return (
+  //   <div>
+  //     <h3>This is just heading : {result}</h3>
+  //     <h3>This is just the name is : {alaaName}</h3>
+  //     <button
+  //       onClick={() => {
+  //         dispatchFunction(incrementFun());
+  //       }}
+  //     >
+  //       increment
+  //     </button>
+  //     <button
+  //       onClick={() => {
+  //         dispatchFunction(decrementFun());
+  //       }}
+  //     >
+  //       decrement
+  //     </button>
+  //     <button
+  //       onClick={() => {
+  //         dispatchFunction({ type: "RESET" });
+  //       }}
+  //     >
+  //       reset
+  //     </button>
+  // </div>
+  // );
+  /************** This is the new example uaamer be with us**************** */
+  const data = useSelector((state) => state); // This line used to view data
+  console.log(data.isLogin);
+  const dataDispatchFunc = useDispatch();
+
   return (
     <div>
-      <h3>This is just heading : {result}</h3>
-      <h3>This is just the name is : {alaaName}</h3>
+      <h3>The Status of Login : {data.value}</h3>
       <button
         onClick={() => {
-          dispatchFunction(incrementFun());
+          dataDispatchFunc(loggedInFunc());
         }}
       >
-        increment
+        {" "}
+        Make Him Logged In
       </button>
+      <br />
       <button
         onClick={() => {
-          dispatchFunction(decrementFun());
+          dataDispatchFunc(loggedOutFunc());
         }}
       >
-        decrement
-      </button>
-      <button
-        onClick={() => {
-          dispatchFunction({ type: "RESET" });
-        }}
-      >
-        reset
+        {" "}
+        Make Him Logged Out
       </button>
     </div>
   );

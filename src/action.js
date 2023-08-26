@@ -11,3 +11,13 @@ export const decrementFun = () => {
     type: DECREMENT,
   };
 };
+export const loggedInFunc = () => {
+  return {
+    type: "login",
+  };
+};
+export const loggedOutFunc = () => {
+  return {
+    type: "not login",
+  };
+};
