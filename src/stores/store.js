@@ -1,4 +1,3 @@
-import { useStore } from "react-redux";
 import { createStore } from "redux";
 import { CounterReducer, second } from "../reducers/reducer.js";
 import { amerLoginReducer } from "../reducers/loginReducer.js";
